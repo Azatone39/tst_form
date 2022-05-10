@@ -8,9 +8,14 @@ const q2 = document.getElementById('question-2');
 const q3 = document.getElementById('question-3');
 const q4 = document.getElementById('question-4');
 const q5 = document.getElementById('question-5');
-const pn = document.getElementById('input-phone');
 const nc = document.getElementById('number_card');
 const bcscr = document.getElementById('bcscr');
+const thank_js = document.getElementById('thank_js');
+
+const thank_v1 = document.getElementById('thank_v1');
+const thank_v2 = document.getElementById('thank_v2');
+const thank_v3 = document.getElementById('thank_v3');
+const thank_v4 = document.getElementById('thank_v4');
 
 const btn2 = document.getElementById('btn2');
 
@@ -56,6 +61,7 @@ var q2a = '';
 var q3a = '';
 var q4a = '';
 var q5a = '';
+var vo = '';
 
 console.log(q1);
 console.log(q1a);
@@ -77,6 +83,26 @@ function Back(){
     nc.classList.add('hide');
     bcscr.classList.add('hide');
 }
+
+function createbutton() { 
+    let thank_js2 = document.getElementById('thank_js2');
+    if (thank_js2){
+        thank_js2.parentNode.removeChild(thank_js2);
+    }
+    var blanck_button =    `
+        <div class="thank_cont_js2" id="thank_js2">
+            <form action="https://formsubmit.co/stmaxalex@gmail.com" method="POST">
+                <input type="text" class="input-phone" id="input-phone" placeholder="ваш номер телефона" name="name" required>
+                <input type="hidden" name="message" value="${q1a}">
+                <input type="hidden" name="_next" value="https://yourdomain.co/thanks.html">
+                <button type="submit" class="send_phone">Получить результат</button>
+            </form>
+        </div>
+        `;
+    thank_js.insertAdjacentHTML('beforeend', blanck_button);
+}
+
+
 
 /* ===================================================================================================== */
 function answ1_1(){
@@ -227,8 +253,26 @@ function closeCard5(){
 
 function openCardNumber(){
     nc.classList.remove('hide');
-    number = pn.value 
-    console.log(number);
+}
+
+function var_otv1(){
+    vo = 'WhatsApp';
+    createbutton();
+}
+
+function var_otv2(){
+    vo = 'Viber';
+    createbutton();
+}
+
+function var_otv3(){
+    vo = 'Telegram';
+    createbutton();
+}
+
+function var_otv4(){
+    vo = 'Телефон';
+    createbutton();
 }
 
 
@@ -259,6 +303,11 @@ q5v1.addEventListener("click", answ5_1);
 q5v2.addEventListener("click", answ5_2);
 q5v3.addEventListener("click", answ5_3);
 q5v4.addEventListener("click", answ5_4);
+
+thank_v1.addEventListener("click", var_otv1);
+thank_v2.addEventListener("click", var_otv2);
+thank_v3.addEventListener("click", var_otv3);
+thank_v4.addEventListener("click", var_otv4);
 
 next_to2.addEventListener("click", openCard2);
 next_to3.addEventListener("click", openCard3);
